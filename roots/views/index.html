@@ -6,6 +6,21 @@
     <title>index</title>
 </head>
 <body>
-    
+    <script src="socket.io/socket.io.js">
+    </script>
+
+    <script>
+        var cliente=io();
+
+        cliente.on('connect',function(){
+            console.log("cliente conectado")
+
+        });
+
+        cliente.on('disconnect',function(){
+            console.log("cliente desconectado")
+
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h3>Server denegado</h3>
+
+    <script src="socket.io/socket.io.js">
+    </script>
+
+    <script>
+        var client=io();
+
+        client.on('connect',function(){
+            console.log("cliente web conectado")
+
+        });
+
+        client.on('disconnect',function(){
+            console.log("cliente web desconectado")
+
+        });
+
+
+
+        //emitir un evento desde cliente
+
+        client.emit('message',{nombre:"hakim"})
+        client.on("srv",(payload)=>{
+        alert(payload["nombre"])
+        });
+    </script>
+</body>
+</html>
