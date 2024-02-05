@@ -1,15 +1,16 @@
 const { io } = require("../index")
 
 io.on('connection', client => {
-    console.log("cliente Conectado");
-    client.on('disconnect', () => {
+   
+client.on('zaz', (payload) => {
+console.log(payload)
 
-        console.log("cliente disconectado")
+    client.emit('flutter', "data form server imdiatamente OK")
     });
 
-    client.on('message', (payload) => {
-        console.log("data", payload["nombre"])
+    
+   
     })
-    client.emit('srv', { nombre: "Servidor A ok" })
-});
+
+
 
